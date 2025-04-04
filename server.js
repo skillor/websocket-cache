@@ -108,17 +108,17 @@ wss.on('connection', (ws, req) => {
   // Handle WebSocket message
   ws.on('message', (data) => {
     const lineSplit = data.toString().split(' ');
-
+    console.log(lineSplit);
     if (lineSplit[0] === '/room' && lineSplit.length === 3) {
       const authToken = lineSplit[1];
       if (authToken !== argv.token) return;
       const roomId = lineSplit[2];
       if (roomId in rooms) {
         rooms[roomId].clients.push(ws);
-        ws.send('/state ' + JSON.stringify(rooms[roomId].state));
       } else {
         rooms[roomId] = { state: undefined, clients: [ws] };
       }
+      ws.send('/state ' + JSON.stringify(rooms[roomId].state));
       return;
     }
 
