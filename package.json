@@ -1,0 +1,16 @@
+{
+    "name": "websocket-cache",
+    "version": "0.0.0",
+    "description": "",
+    "license": "ISC",
+    "author": "",
+    "type": "module",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "ws": "^8.18.1",
+        "yargs": "^17.7.2"
+    }
+}
